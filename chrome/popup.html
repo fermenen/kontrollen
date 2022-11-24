@@ -1,66 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BRemover</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script defer src="./popup.js"></script>
-  </head>
-  <body class="center-content">
-    <div class="flex">
-      <h1 class="center-self title">BRemover</h1>
-      <div class="settings" id="settingsBtn">⚙</div>
-    </div>
-    <main id="main">
-      <section id="content"></section>
-      <form class="form" id="newDomainsForm" style="margin-top: 10px">
-        <label for="pagename">Domain</label>
-        <input required type="text" id="pagename" />
-        <button type="submit">Save</button>
-      </form>
-    </main>
-    <section id="edit" class="hidden">
-      <header id="editHeader" class="page"></header>
-      <section id="currentRules"></section>
-      <form id="newRulesForm" class="newRulesForm" style="margin-top: 10px">
-        <div>
-          <label>Kind</label>
-          <select id="ruleType">
-            <option value="1" data-fields="selector;extraInfo" data-extra="Classes (Split with ;)">
-              Remove classes
-            </option>
-            <option value="2" data-fields="selector;extraInfo" data-extra="Classes (Split with ;)">
-              Add classes
-            </option>
-            <option value="3" data-fields="selector;extraInfo" data-extra="Styles (Split with ;)">
-              Add styles
-            </option>
-            <option value="4" data-fields="selector">Remove nodes</option>
-            <option value="5" data-fields="extraInfo" data-extra="Code">Add script</option>
-            <option value="6" data-fields="extraInfo" data-extra="URL">Add script link</option>
-            <option value="7" data-fields="extraInfo" data-extra="URL">Add stylehseet</option>
-          </select>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>kontrollen</title>
+
+  <link rel="stylesheet" href="./vendor/css/bootstrap.min.css" />
+  <script defer src="./vendor/js/bootstrap.bundle.min.js"></script>
+  <script defer src="./popup.js"></script>
+
+</head>
+
+<body class="mt-3" style="width: 350px">
+
+  <div class="container">
+    <h1>kontrollen</h1>
+
+    <div class="accordion accordion-flush me-3" id="accordion">
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-instagram">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            <img class="me-2" src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"
+              width="16px" alt="Instagram icon">Instagram
+          </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-instagram"
+          data-bs-parent="#accordion">
+          <div class="accordion-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="instagramExplore" checked>
+                  <label class="form-check-label ms-1" for="flexSwitchCheckChecked">Explore</label>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="instagramReels" checked>
+                  <label class="form-check-label ms-1" for="flexSwitchCheckChecked">Reels</label>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="instagramStories" checked>
+                  <label class="form-check-label ms-1" for="flexSwitchCheckChecked">Stories</label>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="instagramMessages" checked>
+                  <label class="form-check-label ms-1" for="flexSwitchCheckChecked">Messages</label>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="instagramNotifications" checked>
+                  <label class="form-check-label ms-1" for="flexSwitchCheckChecked">Notifications</label>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="instagramSuggestions" checked>
+                  <label class="form-check-label ms-1" for="flexSwitchCheckChecked">Suggestions</label>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div>
-          <label for="selector">Selector</label>
-          <input id="selector" type="text" />
-        </div>
-        <div>
-          <label for="extraInfo">Classes (Split with ;)</label>
-          <input id="extraInfo" type="text" />
-        </div>
-        <button type="submit">Add</button>
-      </form>
-    </section>
-    <section id="settings" class="hidden">
-      <div>
-        <button id="importBtn">Import</button>
-        <input id="importFile" type="file" class="hidden" />
-        <button id="exportBtn">Export</button>
       </div>
-      <div id="domainsSettingsList"></div>
-    </section>
-  </body>
+
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-youTube">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+            <img class="me-2"
+              src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg"
+              width="16px" alt="YouTube icon">YouTube
+          </button>
+        </h2>
+        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-youTube"
+          data-bs-parent="#accordion">
+          <div class="accordion-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="youtubeShorts" checked>
+                  <label class="form-check-label ms-1" for="flexSwitchCheckChecked">Shorts</label>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="youtubeExplore" checked>
+                  <label class="form-check-label ms-1" for="flexSwitchCheckChecked">Explore</label>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="youtubeHome" checked>
+                  <label class="form-check-label ms-1" for="flexSwitchCheckChecked">Recommendations home</label>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="youtubeNotifications" checked>
+                  <label class="form-check-label ms-1" for="flexSwitchCheckChecked">Notifications</label>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-twitter">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+            <img class="me-2" src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Twitter-logo.svg" width="16px"
+              alt="Twitter icon">Twitter
+          </button>
+        </h2>
+        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-twitter"
+          data-bs-parent="#accordion">
+          <div class="accordion-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="twitterExplore" checked>
+                  <label class="form-check-label ms-1" for="flexSwitchCheckChecked">Explore</label>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+</body>
+
 </html>
